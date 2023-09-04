@@ -74,6 +74,27 @@ function addPushlogButton(push) {
 
   titleLeft.appendChild(document.createTextNode(" "));
   titleLeft.appendChild(button);
+
+  let otherButton = document.createElement("button");
+  otherButton.textContent = "Revision";
+  otherButton.addEventListener("click", async function() {
+    otherButton.disabled = true;
+
+    try {
+      if (otherButton.textContent == "Revision") {
+
+        let data = await getYAMLData(repo, revision);
+        otherButton.textContent = data.get("head_rev");
+      }
+
+      await navigator.clipboard.writeText(otherButton.textContent);
+    } finally {
+      otherButton.disabled = false;
+    }
+  });
+
+  titleLeft.appendChild(document.createTextNode(" "));
+  titleLeft.appendChild(otherButton);
 }
 
 async function getYAMLData(repo, revision) {

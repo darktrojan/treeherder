@@ -1,7 +1,7 @@
 {
   "name": "Treeherder Additions",
   "author": "Geoff Lankow",
-  "version": "2",
+  "version": "3",
   "browser_specific_settings": {
     "gecko": {
       "id": "treeherder@darktrojan.net"
